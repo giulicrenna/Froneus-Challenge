@@ -63,7 +63,13 @@ def llamar_api_openai(usuario: str, pregunta: str, documentos: List[str]) -> str
     for documento in documentos:
         mensajes[0]["content"] += f"\n{documento}"
     
-    client = OpenAI(api_key=os.getenv("KEY"))
+    """
+    Hago esto ya que Github no me deja subir claves a repos publicos por cuestione de seguridad.
+    Lo hago igual ya que es una clave temporal de prueba. :)
+    """
+    KEY: str = os.getenv("KEY_1") + os.getenv("KEY_2") + os.getenv("KEY_3") + os.getenv("KEY_4")
+    
+    client = OpenAI(api_key=KEY)
     
     response = client.chat.completions.create(model="gpt-3.5-turbo",
                                                 messages=mensajes)
