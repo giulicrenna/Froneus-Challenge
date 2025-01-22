@@ -29,7 +29,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 
 1. Clona el repositorio del proyecto:
    ```cmd
-   git clone https://github.com/usuario/chatbot-froneus.git
+   git clone https://github.com/giulicrenna/Froneus-Challenge
    cd chatbot-froneus
    ```
 
@@ -62,7 +62,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 
 1. Clona el repositorio del proyecto:
    ```bash
-   git clone https://github.com/usuario/chatbot-froneus.git
+   git clone https://github.com/giulicrenna/Froneus-Challenge
    cd chatbot-froneus
    ```
 
@@ -95,7 +95,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 
 1. Clona el repositorio del proyecto:
    ```bash
-   git clone https://github.com/usuario/chatbot-froneus.git
+   git clone https://github.com/giulicrenna/Froneus-Challenge
    cd chatbot-froneus
    ```
 

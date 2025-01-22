@@ -11,8 +11,8 @@ services:
       - .:/app  
     environment:
       - PYTHONUNBUFFERED=1  
-      - KEY_1=sk-pr
-      - KEY_2=oj-Ow_lSJc
-      - KEY_3=TLEl_b4ULGhANZyxAjEkAUgNyAHS-AXNI7aqy02f9cj0sn8XVGhn5la6PG0CB0vIQ_pT
-      - KEY_4=3BlbkFJhBfphsOW6SWKnhqjKAShhtpchW36IpNROTz29Z4San7yERl9Dntto2Enjrvqglw_9xsDsEuOoA
+      - KEY_1=
+      - KEY_2=
+      - KEY_3=
+      - KEY_4=
     restart: unless-stopped 
