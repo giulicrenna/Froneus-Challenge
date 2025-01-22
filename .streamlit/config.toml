@@ -1,0 +1,8 @@
+[client]
+showErrorDetails = false
+
+[theme]
+base = "light"
+
+[runner]
+magicEnabled = false

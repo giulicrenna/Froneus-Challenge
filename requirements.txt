@@ -1,0 +1,9 @@
+chromadb 
+PyPDF2
+sentence-transformers
+transformers
+openai
+streamlit
+python-dotenv
+pydantic
+colorama
