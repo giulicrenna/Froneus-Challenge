@@ -131,11 +131,3 @@ Antes de comenzar, asegúrate de tener lo siguiente:
    ```bash
    docker-compose down
    ```
-
----
-
-## Notas Adicionales
-- Asegúrate de que el puerto especificado (8082 para Docker o 8501 para ejecución local) no esté ocupado por otra aplicación.
-- En caso de problemas con las dependencias, verifica la compatibilidad de las versiones en el archivo `requirements.txt`.
-
-
