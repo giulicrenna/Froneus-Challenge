@@ -30,7 +30,7 @@ mensajes_presentacion: List[str] = [
     "¡Bienvenido al mundo de *Juego de Tronos*! Soy el chatbot de Froneus, listo para responder tus preguntas.",
     "¡Hola! Soy el experto en *Juego de Tronos* que estabas buscando. ¿Qué necesitas saber?",
     "¡Hola! Aquí Froneus, tu guía exclusivo para todo lo relacionado con el libro *Juego de Tronos*.",
-    "¡Saludos! Soy el chatbot de Froneus. ¿Tienes preguntas sobre *Juego de Tronos*? Estoy listo para responder."
+    "¡Saludos! Soy el chatbot de Froneus. ¿Tienes preguntas sobre *Juego de Tronos*? Estoy listo para responder.",
 ]
 
 
@@ -42,9 +42,13 @@ def agregar_mensaje_contexto(usuario: str, role: str, mensaje: str) -> None:
 
     contexto_global.contexto[usuario].agregar_mensaje(msg)
 
-def obtener_mensajes_contexto(usuario: str) -> List[Dict[str, str]]:    
-    mensajes = [{"role": msg.role, "content": msg.msg} for msg in contexto_global.contexto[usuario].mensajes]
-    
+
+def obtener_mensajes_contexto(usuario: str) -> List[Dict[str, str]]:
+    mensajes = [
+        {"role": msg.role, "content": msg.msg}
+        for msg in contexto_global.contexto[usuario].mensajes
+    ]
+
     return mensajes
 
 
@@ -53,30 +57,33 @@ def llamar_api_openai(usuario: str, pregunta: str, documentos: List[str]) -> str
 
     # Hago una copia ya que no me intera guardar los documentos de la query en el contexto.
     mensajes = obtener_mensajes_contexto(usuario).copy()
-    
+
     """
     Preparo el contexto del chatbot
     """
-    mensajes.insert(0, {"role": "system", "content" : CONTEXT})
+    mensajes.insert(0, {"role": "system", "content": CONTEXT})
     mensajes[0]["content"] += "\nResponder en base a la siguiente información:\n"
-    
+
     for documento in documentos:
         mensajes[0]["content"] += f"\n{documento}"
-    
+
     """
     Hago esto ya que Github no me deja subir claves a repos publicos por cuestione de seguridad.
     Lo hago igual ya que es una clave temporal de prueba. :)
     """
-    KEY: str = os.getenv("KEY_1") + os.getenv("KEY_2") + os.getenv("KEY_3") + os.getenv("KEY_4")
-    
+    KEY: str = (
+        os.getenv("KEY_1")
+        + os.getenv("KEY_2")
+        + os.getenv("KEY_3")
+        + os.getenv("KEY_4")
+    )
+
     client = OpenAI(api_key=KEY)
-    
-    response = client.chat.completions.create(model="gpt-3.5-turbo",
-                                                messages=mensajes)
-    
+
+    response = client.chat.completions.create(model="gpt-3.5-turbo", messages=mensajes)
+
     respuesta_texto = response.choices[0].message.content
-    
+
     agregar_mensaje_contexto(usuario, "assistant", respuesta_texto)
 
     return respuesta_texto
-

@@ -2,6 +2,7 @@ import re
 from typing import List
 from PyPDF2 import PdfReader
 
+
 def extraer_texto_de_pdf(ruta_pdf: str) -> str:
     """
     Extrae el texto de un archivo PDF.
@@ -14,10 +15,10 @@ def extraer_texto_de_pdf(ruta_pdf: str) -> str:
     """
     lector = PdfReader(ruta_pdf)
     texto = ""
-    
+
     for pagina in lector.pages:
         texto += pagina.extract_text()
-    
+
     return texto
 
 
@@ -31,7 +32,7 @@ def limpiar_caracteres_extraños(texto: str) -> str:
     Retorna:
         str: Texto limpio, sin caracteres no deseados.
     """
-    return re.sub(r'[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ\s]', '', texto)
+    return re.sub(r"[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ\s]", "", texto)
 
 
 def dividir_texto_en_fragmentos(texto: str, chunk_size: int = 500) -> List[str]:
@@ -51,7 +52,10 @@ def dividir_texto_en_fragmentos(texto: str, chunk_size: int = 500) -> List[str]:
     fragmento_actual = []
 
     for palabra in palabras:
-        if sum(len(p) for p in fragmento_actual) + len(fragmento_actual) + len(palabra) <= chunk_size:
+        if (
+            sum(len(p) for p in fragmento_actual) + len(fragmento_actual) + len(palabra)
+            <= chunk_size
+        ):
             fragmento_actual.append(palabra)
         else:
             fragmentos.append(" ".join(fragmento_actual))

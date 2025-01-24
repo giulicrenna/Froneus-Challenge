@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import List, Dict
 
+
 class Mensaje(BaseModel):
     """
     Representa un mensaje en el contexto de un usuario.
@@ -9,6 +10,7 @@ class Mensaje(BaseModel):
         role (str): Rol asociado al mensaje (por ejemplo, "system", "user", "assistant"). Por defecto es "system".
         msg (str): Contenido del mensaje.
     """
+
     role: str = "system"
     msg: str
 
@@ -21,6 +23,7 @@ class ContextoUsuario(BaseModel):
         nombre_usuario (str): Nombre del usuario.
         mensajes (List[Mensaje]): Lista de mensajes asociados al usuario. Por defecto es una lista vacía.
     """
+
     nombre_usuario: str
     mensajes: List[Mensaje] = []
 
@@ -49,4 +52,5 @@ class Contexto(BaseModel):
         contexto (Dict[str, ContextoUsuario]): Diccionario que mapea nombres de usuarios a sus respectivos contextos.
                                               Por defecto es un diccionario vacío.
     """
+
     contexto: Dict[str, ContextoUsuario] = {}

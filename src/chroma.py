@@ -10,6 +10,7 @@ cliente = chromadb.PersistentClient(
 
 coleccion = cliente.get_or_create_collection(name="juegos_de_tronos")
 
+
 def generar_embeddings(
     fragmentos_texto: List[str], nombre_modelo: str = "all-MiniLM-L6-v2"
 ) -> List[np.ndarray]:
