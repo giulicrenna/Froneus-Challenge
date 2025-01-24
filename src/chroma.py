@@ -25,6 +25,7 @@ def generar_embeddings(
         List[np.ndarray]: Lista de embeddings (vectores) generados para cada fragmento de texto.
     """
     modelo = SentenceTransformer(nombre_modelo)
+    
     return modelo.encode(fragmentos_texto).tolist()
 
 
@@ -40,6 +41,7 @@ def guardar_embeddings_en_chroma(
         nombre_coleccion (str): Nombre de la colección en ChromaDB donde se guardarán los datos.
     """
     ids = [f"doc_{i}" for i in range(len(embeddings))]
+    
     coleccion.add(embeddings=embeddings, documents=textos, ids=ids)
 
 
@@ -58,8 +60,11 @@ def consulta_semantica(
         List[Dict]: Lista de diccionarios con los resultados más similares.
     """
     modelo = SentenceTransformer(nombre_modelo)
+
     embedding_consulta = modelo.encode([texto_consulta]).tolist()
+
     resultados = coleccion.query(query_embeddings=embedding_consulta, n_results=top_k)
+
     return resultados
 
 
@@ -78,10 +83,13 @@ def similitud_coseno(
         float: Valor de similitud coseno entre los dos textos (rango de -1 a 1).
     """
     modelo = SentenceTransformer(nombre_modelo)
+
     embeddings = modelo.encode([texto1, texto2])
+
     similitud = np.dot(embeddings[0], embeddings[1]) / (
         np.linalg.norm(embeddings[0]) * np.linalg.norm(embeddings[1])
     )
+
     return similitud
 
 
@@ -93,6 +101,7 @@ def eliminar_documento_por_id(id_documento: str) -> None:
         id_documento (str): ID del documento a eliminar.
     """
     coleccion.delete(ids=[id_documento])
+    
     print(f"Documento con ID '{id_documento}' eliminado.")
 
 
@@ -105,6 +114,7 @@ def limpiar_chromadb(collection_name: str = None) -> None:
     """
     try:
         cliente.delete_collection(collection_name)
+        
         print(f"Colección '{collection_name}' borrada.")
     except Exception as e:
         print(f"Error eliminando '{collection_name}': {e}")
