@@ -17,7 +17,7 @@ load_dotenv()
 def inicializar_db(pdf_path: str) -> None:
     """
     Orquesta el proceso completo desde la extracción del texto del PDF hasta el almacenamiento en ChromaDB.
-    Args:
+    Parámetros:
         pdf_path (str): Ruta del archivo PDF.
     """
     text: str = extraer_texto_de_pdf(pdf_path)
