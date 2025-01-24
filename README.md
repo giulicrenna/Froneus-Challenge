@@ -6,7 +6,28 @@ Este proyecto utiliza *Streamlit* para la interfaz web y una arquitectura basada
 
 ---
 
+## Preguntas
+
+### ¿Qué lograste con tu modelo?
+Con mi modelo, logré responder de manera satisfactoria las preguntas relacionadas con el libro Game of Thrones: Canción de Hielo y Fuego. Esto fue posible recuperando la información directamente de los documentos almacenados en la base de datos vectorial, lo que facilitó al modelo LLM comprender mejor el contexto.
+
+### ¿Qué dificultades se te presentaron?,
+Personalmente, lo que más me costó fue la parte del frontend. Aunque tengo bastante experiencia utilizando Streamlit, me considero más del backend.
+
+### ¿Qué sugerís para el futuro?.
+
+Hay varias cosas que se podrían mejorar en el futuro, como:  
+1. Probar con un modelo de embeddings más potente y complejo.  
+2. Hacer un preprocesamiento más detallado del texto que sacamos del PDF.  
+3. Buscar técnicas de chunking más efectivas.  
+4. Aunque GPT-3 funciona bastante bien, estaría genial probar con otras opciones como GPT-4 o modelos más específicos, (Incluso Open Weight como Ollama).  
+5. Investigar modelos multitarea para hacer que el modelo responda mejor a una variedad de preguntas.  
+6. Hacer fine-tuning en el modelo para que sea aún más experto en *Game of Thrones*.  
+
+---
+
 ## Características
+
 - Responde exclusivamente preguntas sobre el libro *Juego de Tronos*.
 - Fácil instalación y despliegue.
 - Disponible para ejecución local con entornos virtuales (*venv*) y mediante contenedores con *Docker Compose*.
