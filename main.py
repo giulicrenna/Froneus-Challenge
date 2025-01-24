@@ -44,12 +44,12 @@ if not os.path.exists(os.path.join(os.getcwd(), "data", "embeddings")):
 else:
     cprint("Base de datos vectorial ya existe.", "WARNING")
     
+    
+    
 """
 A partir de acá genero el Streamlit para la posterior visualización.
 """
 st.title(":snowflake: Chatbot de Juego de Tronos")
-
-
 
 with st.sidebar:
     st.image(os.path.join(os.getcwd(), 'static', 'froneus.png'), use_container_width=True)
