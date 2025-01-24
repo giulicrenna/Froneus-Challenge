@@ -23,6 +23,7 @@ Hay varias cosas que se podrían mejorar en el futuro, como:
 4. Aunque GPT-3 funciona bastante bien, estaría genial probar con otras opciones como GPT-4 o modelos más específicos, (Incluso Open Weight como Ollama).  
 5. Investigar modelos multitarea para hacer que el modelo responda mejor a una variedad de preguntas.  
 6. Hacer fine-tuning en el modelo para que sea aún más experto en *Game of Thrones*.  
+7. El código actual es monolítico, sería buena refactorizarlo en microservicios.
 
 ---
 
